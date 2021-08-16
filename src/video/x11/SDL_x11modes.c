@@ -1041,11 +1041,6 @@ X11_SetDisplayMode(_THIS, SDL_VideoDisplay * sdl_display, SDL_DisplayMode * mode
         }
 
         X11_XGrabServer(display);
-        status = X11_XRRSetCrtcConfig(display, res, output_info->crtc, CurrentTime,
-          0, 0, None, crtc->rotation, NULL, 0);
-        if (status != Success) {
-            goto setCrtcError;
-        }
 
         mm_width = mode->w * DisplayWidthMM(display, data->screen) / DisplayWidth(display, data->screen);
         mm_height = mode->h * DisplayHeightMM(display, data->screen) / DisplayHeight(display, data->screen);
